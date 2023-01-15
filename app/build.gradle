@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.elsonji.coworks'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.elsonji.coworks"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+
+dependencies {
+
+    //Navigation Component
+    implementation "androidx.navigation:navigation-fragment-ktx:$VERSION_NAV_COMPONENT"
+    implementation "androidx.navigation:navigation-ui-ktx:$VERSION_NAV_COMPONENT"
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:$VERSION_HILT"
+    kapt "com.google.dagger:hilt-compiler:$VERSION_HILT"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$VERSION_KOTLIN_COROUTINES"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$VERSION_RETROFIT2"
+    implementation "com.squareup.retrofit2:converter-moshi:$VERSION_MOSHI_CONVERTER"
+
+    //Moshi
+    implementation "com.squareup.moshi:moshi:$VERSION_MOSHI"
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:$VERSION_MOSHI_CODEGEN")
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

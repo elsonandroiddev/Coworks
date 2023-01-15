@@ -1,0 +1,25 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        VERSION_NAV_COMPONENT = '2.5.3'
+        VERSION_HILT = '2.42'
+        VERSION_KOTLIN_COROUTINES = '1.6.4'
+        VERSION_RETROFIT2 = '2.9.0'
+        VERSION_MOSHI_CONVERTER = '2.9.0'
+        VERSION_MOSHI = '1.14.0'
+        VERSION_MOSHI_CODEGEN = '1.13.0'
+    }
+
+    dependencies {
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$VERSION_HILT"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.3.0' apply false
+    id 'com.android.library' version '7.3.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+}
